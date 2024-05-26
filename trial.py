@@ -1,5 +1,5 @@
 from openpyxl import Workbook
-from openpyxl.styles import Alignment
+from openpyxl.styles import Alignment, Font, Border, Side
 import sqlite3
 
 workbook = Workbook()
@@ -8,7 +8,7 @@ ws = workbook.active
 con = sqlite3.connect("sql.db")
 cur = con.cursor()
 
-res = cur.execute("SELECT * from test")
+res = cur.execute("SELECT * from company_info")
 data = res.fetchall()
 
 res = cur.execute("SELECT COUNT(*) FROM accounts")
@@ -51,14 +51,32 @@ for x in range(3):
 for x in range(50):
     ws.merge_cells(start_row=x+1, start_column=1, end_row=x+1, end_column=4)
 
+sumLeft = 0
+sumRight = 0
 for x in range(account_num):
-    ws['A' + str(x+5)] = accounts[x][1]
-    ws['E' + str(x+5)] = accounts[x][0]
-    if accounts[x][2] == 0:
-        ws['F' + str(x+5)] = accounts[x][3]
-    if accounts[x][2] == 1:
-        ws['G' + str(x+5)] = accounts[x][3]
-    
+    if int(accounts[x][3]) != 0:
+        ws['A' + str(x+5)] = accounts[x][1]
+        ws['E' + str(x+5)] = accounts[x][0]
+        if int(accounts[x][3]) > 0:
+            ws['F' + str(x+5)] = abs(int(accounts[x][3]))
+            sumLeft = sumLeft + int(accounts[x][3])
+        if int(accounts[x][3]) < 0:
+            ws['G' + str(x+5)] = abs(int(accounts[x][3]))
+            sumRight = sumLeft + int(accounts[x][3])
 
-workbook.save(filename="test.xlsx")
+ws['F' + str(account_num + 5)] = sumLeft
+ws['G' + str(account_num + 5)] = sumLeft
+
+# Define a bold font and double border
+bold_font = Font(bold=True)
+double_border = Border(top=Side(style='thick'), bottom=Side(style='double'))
+
+# Apply the font and border to the total row
+ws['F' + str(account_num + 5)].font = bold_font
+ws['G' + str(account_num + 5)].font = bold_font
+
+ws['F' + str(account_num + 5)].border = double_border
+ws['G' + str(account_num + 5)].border = double_border
+
+workbook.save(filename="trial.xlsx")
 con.close()

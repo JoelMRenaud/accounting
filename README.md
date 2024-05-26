@@ -1,0 +1,1 @@
+Account types are asset, liability, oe, income, expense

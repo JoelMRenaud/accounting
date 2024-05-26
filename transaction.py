@@ -9,7 +9,7 @@ data = res.fetchall()
 
 print("Make a transaction")
 
-print("How many debits")
+print("How many debits:")
 debitCount = int(input())
 debits = []
 debitAccounts = []
@@ -22,7 +22,7 @@ for i in range(debitCount):
     debitAccounts.append(int(input()))
 
 
-print("How many credits")
+print("How many credits:")
 creditCount = int(input())
 credits = []
 creditAccounts = []
@@ -63,7 +63,7 @@ if(sum(credits) == sum(debits)):
     for i in range(len(credits)):
         val = cur.execute("SELECT value FROM accounts WHERE account_number = ?", (str(creditAccounts[i]),))
         val = int(''.join(map(str, val.fetchall()[0])))
-        cur.execute("UPDATE accounts SET value = ? WHERE account_number = ?", (str(val + credits[i]), str(creditAccounts[i])))
+        cur.execute("UPDATE accounts SET value = ? WHERE account_number = ?", (str(val - credits[i]), str(creditAccounts[i])))
 
 else:
     print("DEBIT MUST EQUAL CREDIT")
