@@ -1,7 +1,7 @@
 import sqlite3
 import sys
 
-con = sqlite3.connect("sql.db")
+con = sqlite3.connect("databases/company1.db")
 cur = con.cursor()
 
 res = cur.execute("SELECT * from accounts")
@@ -33,6 +33,7 @@ for i in range(creditCount):
     credits.append(int(input()))
     print("Credit account number:")
     creditAccounts.append(int(input()))
+
 
 res = cur.execute("SELECT * FROM accounts ORDER BY account_number")
 accounts = res.fetchall()

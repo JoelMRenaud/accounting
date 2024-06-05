@@ -14,7 +14,7 @@ type = input()
 
 #Connecting to db
 
-con = sqlite3.connect("sql.db")
+con = sqlite3.connect("databases/company1.db")
 cur = con.cursor()
 
 res = cur.execute("SELECT * FROM accounts ORDER BY account_number")
