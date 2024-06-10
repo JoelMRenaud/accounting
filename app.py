@@ -58,7 +58,7 @@ class transaction(tk.Frame):
         label.grid(row=0, column=2)
         add_debit = tk.Button(self, text="Add debit", command=lambda: self.increase_debit())
         add_debit.grid(row=1, column=1,pady=15)
-        add_credit = tk.Button(self, text="Add debit", command=lambda: self.increase_credit())
+        add_credit = tk.Button(self, text="Add credit", command=lambda: self.increase_credit())
         add_credit.grid(row=1, column=3,pady=15)
 
         self.debit_labels = []  # To store references to debit labels
