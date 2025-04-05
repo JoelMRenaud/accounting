@@ -1,3 +1,2 @@
-Account types are asset, liability, oe, income, expense
+Hello CISVA District Authority,
 
-Text boxes next time
