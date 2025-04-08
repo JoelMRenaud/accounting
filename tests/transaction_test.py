@@ -67,7 +67,7 @@ if(sum(credits) == sum(debits)):
         cur.execute("UPDATE accounts SET value = ? WHERE account_number = ?", (str(val - credits[i]), str(creditAccounts[i])))
 
 else:
-    print("DEBIT MUST EQUAL CREDIT")
+    print("ERROR: DEBIT MUST EQUAL CREDIT")
     sys.exit(1)
 
 con.commit()

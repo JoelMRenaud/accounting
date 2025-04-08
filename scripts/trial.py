@@ -51,6 +51,8 @@ def trial_excel(con):
     for x in range(50):
         ws.merge_cells(start_row=x+1, start_column=1, end_row=x+1, end_column=4)
 
+    #Create the rows and sum up
+
     sumLeft = 0
     sumRight = 0
     limiter = 0
