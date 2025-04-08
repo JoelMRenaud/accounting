@@ -3,7 +3,7 @@ import sys
 
 #Collecting input 
 
-print("Give account name:")
+print("Give the account name:")
 name = input()
 
 print("What is the account number:")

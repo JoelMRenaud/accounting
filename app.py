@@ -163,7 +163,7 @@ class MainApp(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 
-        self.title("Ap CSA final project")
+        self.title("Dogwood project")
 
         # Set the initial window size
         self.geometry("500x500")

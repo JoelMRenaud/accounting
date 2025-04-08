@@ -12,7 +12,7 @@ def transactions(debitAccounts, debits, creditAccounts, credits, con):
 
     if(sum(credits) == sum(debits)):
 
-        #Make sure accounts exist
+        #Make sure account exists
         for i in range(len(debits)):
             if (debitAccounts[i] not in accountNames):
                 print("ACCOUNT " + debitAccounts[i] + " NOT FOUND")
@@ -36,7 +36,7 @@ def transactions(debitAccounts, debits, creditAccounts, credits, con):
             cur.execute("UPDATE accounts SET value = ? WHERE name = ?", (str(val - credits[i]), creditAccounts[i]))
 
     else:
-        print("DEBIT MUST EQUAL CREDIT")
+        print("ERROR: DEBIT MUST EQUAL CREDIT")
         sys.exit(1)
     
     con.commit()
