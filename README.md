@@ -11,3 +11,6 @@ tkinter
 And then run app.py to use the application. If it won’t work on your system simply watch the provided video to see it in use. To make a new transaction click the “make a new transaction” button and then select a debit and credit account and amount. Note, to fulfil the accounting process the debit amount must equal the credit amount or the program will get mad at you. Once all of your transactions are plugged in simply click the “export data to excel” button and then the spreadsheet will be updated. From there open the spreadsheet in excel to view the changes and use them for all your accounting needs.
 
 That is all for this project, please view the attached video demonstration and the slideshow I used for my accounting project. Thank you for your time!
+
+Slideshow:
+https://docs.google.com/presentation/d/1gTddK4NZN9UwU6X34P1unJv6ef2OkavLiC4aYqqZzl0/edit?slide=id.p#slide=id.p
